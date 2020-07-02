@@ -1,5 +1,29 @@
-.searching_text {
+:root {
+  --btn-color-hover: #fbc990;
+  --main-color: #f3b876;
+  --main-color-dark: #c89355;
+  --color-white: ivory;
+  --btn-text-light: white;
+  --card-text-light: white;
+  --card-text-alpha80: white;
+  --card-box-shadow: rgb(37, 37, 37) 0 .25rem .5rem 0;
+  --input-box-shadow: rgba(224, 224, 224, 0.589) 0 1px 4px 0;
+  --color-black: #1f1f1f;
+  --bg-gradient-shadow: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+  --bg-text-shadow: #1b1b1b6e 0 0 .75rem, #000 0 0 .1rem;
+  --color-lighter-text: #4b4b4b;
+  --main-border-radius: .5rem;
+  --sub-border-radius: .5rem;
+  --pagination-btn-border-radius: 2px;
+}
+.searching_text > p {
   font-size: 2rem;
+  display: inline;
+}
+
+.searching_city {
+  font-size: 3rem;
+  color: var(--main-color);
 }
 
 .search_fields {
@@ -10,8 +34,9 @@
 }
 
 .city_label, .filter_label {
-  /* visibility: hidden;
-  display: none; */
+  text-align: left;
+  margin-left: .25rem;
+  color: var(--color-lighter-text)
 }
 
 .city_input, .filter_input, .search_btn {
@@ -19,10 +44,33 @@
   height: 1.25rem;
   font-size: 1.1rem;
   margin: .25rem;
+  border-radius: var(--sub-border-radius);
+  padding: .5rem;
+  border: lightgray 1px solid;
+  box-shadow: var(--input-box-shadow);
 }
 
 .search_btn {
-  height: 1.5rem;
+  height: 2.5rem;
+  margin-top: 1rem;
+  background: var(--main-color);
+  border: none;
+  border-bottom: 3px solid var(--main-color-dark);
+  color: var(--btn-text-light)
+}
+
+.search_btn:hover {
+  background: var(--btn-color-hover);
+}
+.search_btn:active {
+  background: var(--main-color);
+  border: none;
+}
+
+.search_btn:disabled {
+  background: rgb(231, 231, 231);
+  border-bottom: none;
+  color: rgb(207, 207, 207);
 }
 
 .pages_list {
@@ -40,23 +88,28 @@
 
 .page_btn {
   background: none;
-  color: black;
+  color: var(--color-black);
   border: none;
 }
 
 .current_page_btn {
-  border-radius: 2px;
-  color: white;
-  border: 1px solid orange;
-  background: orange;
+  border-radius: var(--pagination-btn-border-radius);
+  color: var(--btn-text-light);
+  border: 1px solid var(--main-color);
+  background: var(--main-color);
+}
+.current_page_btn:hover {
+  cursor: pointer;
+  background: var(--btn-color-hover);
+  border: 1px solid var(--btn-color-hover);
 }
 
-.page_btn:hover, .current_page_btn:hover {
+.page_btn:hover {
   cursor: pointer;
-  border-radius: 2px;
+  border-radius: var(--pagination-btn-border-radius);
   background: none;
-  color: orange;
-  border: 1px solid orange;
+  color: var(--main-color);
+  border: 1px solid var(--main-color);
 }
 
 .restaurant_list {
@@ -71,15 +124,14 @@
 }
 .anchor:hover .item_card {
   backdrop-filter: blur(0.8);
-  background-color: lightgreen;
 }
 
 .item_card {
   list-style-type: none;
   position: relative;
   margin-bottom: 2rem;
-  border-radius: .5rem;
-  box-shadow: rgb(37, 37, 37) 0 .25rem .5rem 0;
+  border-radius: var(--main-border-radius);
+  box-shadow: var(--card-box-shadow);
   height: 17rem;
   max-width: 45rem;
   width: 60vw;
@@ -94,14 +146,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: .5rem;
+  border-radius: var(--main-border-radius);
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 .text_bg {
   padding: .5rem;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+  background: var(--bg-gradient-shadow);
   height: auto;
   position: absolute;
   bottom: 0;
@@ -118,7 +170,7 @@
 }
 
 .name_bg {
-  text-shadow: #1b1b1b6e 0 0 .75rem, #000 0 0 .1rem;
+  text-shadow: var(--bg-text-shadow);
   display: inline-block;
   position: absolute;
   text-align: right;
@@ -135,15 +187,15 @@
   padding: .25rem;
   line-height: 2.55rem;
   background: rgba(255, 255, 255, 0.5);
-  border-radius: .25rem;
+  border-radius: var(--sub-border-radius);
   filter: blur(0.8);
-  color: white;
+  color: var(--btn-text-light);
   text-decoration: none;
   font-size: calc(14px + 2vmin);
 }
 
 .price_list {
-  border-radius: .25rem;
+  border-radius: var(--sub-border-radius);
   filter: blur(0.8);
   padding: .25rem;
   display: inline-block;
@@ -153,13 +205,13 @@
 
 .price_list .price_symbol {
   display: inline;
-  color: white;
+  color: var(--btn-text-light);
 }
 
 .address {
   text-align: left;
   color: rgba(255, 255, 255, 0.8);
-  text-shadow: black 0 0 .1rem;
+  text-shadow: var(--color-black) 0 0 .1rem;
   font-size: calc(12px + 1vmin);
   max-width: 50%;
   margin-bottom: 2rem;
@@ -170,17 +222,17 @@
   position: absolute;
   bottom: .5rem;
   left: .5rem;
-  border-radius: .25rem;
+  border-radius: var(--sub-border-radius);
   padding: .25rem;
   margin: 0;
   background-color: rgba(255, 255, 255, 0.5);
-  color: white;
+  color: var(--card-text-light);
   font-size: calc(8px + 1vmin);
   z-index: 200;
 }
 
 .reserve_btn {
-  color: white;
+  color: var(--btn-text-light);
   position: absolute;
   bottom: .5rem;
   right: .5rem;
@@ -188,6 +240,6 @@
   padding: .5rem;
   font-size: 1rem;
   border-radius: 5rem;
-  background: orange;
-  border-bottom: darkorange 3px solid;
+  background: var(--main-color);
+  border-bottom: var(--main-color-dark) 3px solid;
 }

@@ -19,6 +19,7 @@ import {
   setCurrentPage,
   updatePage
 } from './citySlice';
+import LoadingBtn from '../assets/LoadingBtn';
 import styles from './City.module.css';
 
 const RestaurantsList = React.lazy(() => import('../restaurants/RestaurantsList'));
@@ -69,7 +70,6 @@ export function City() {
     } else {
       dispatch(fetchAsync({...searchObject, page: n}))
     }
-
   }
 
   const CitiesDataList = ({ id }) => {
@@ -125,27 +125,37 @@ export function City() {
 
   return (
     <>
-      <p className={styles.searching_text}> Search for restaurants in {searchObject.city}</p>
+      <p className={styles.searching_text}>
+        <p>Search for restaurants in </p>
+        <span className={styles.searching_city}>
+          {
+            searchObject.city.length > 0
+            ? `${searchObject.city}.`
+            : `...`
+          }
+        </span>
+
+      </p>
       <div className={styles.search_fields}>
-        <label className={styles.city_label} htmlFor="city">City:</label>
+        <label className={styles.city_label} htmlFor="city">City</label>
         <input
           list="citiesList"
           className={styles.city_input}
           type="text"
           id="city"
           name="city"
-          placeholder="City"
+          placeholder="ex. 'Toronto'"
           required
           onChange={handleInputChange}
         />
         <CitiesDataList id="citiesList" />
-        <label className={styles.filter_label} htmlFor="filter">Filter:</label>
+        <label className={styles.filter_label} htmlFor="filter">Filter</label>
         <input
           className={styles.filter_input}
           type="text"
           id="filter"
           name="filter"
-          placeholder="Filter"
+          placeholder="ex. 'King St' or 'bar'"
           required
           onChange={handleInputChange}
         />
@@ -154,12 +164,12 @@ export function City() {
           onClick={searchCity}
           disabled={cityValue.length === 0 || loadingState !== 'idle'}
         >
-          Find
+        { loadingState === 'idle'
+          ? `find`
+          : <LoadingBtn />
+        }
         </button>
       </div>
-      { loadingState !== 'idle' &&
-        <p>Loading...</p>
-      }
       { (list.length >= 0 && value && loadingState !== 'pending') &&
         <p>
           {`Showing ${(currentPage * nEntries) - (nEntries - 1)}` +

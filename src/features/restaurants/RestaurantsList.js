@@ -4,6 +4,7 @@ import {
   selectList,
 } from '../city/citySlice';
 import styles from '../city/City.module.css';
+import LoadingImg from '../assets/LoadingImg';
 
 const RestaurantCard = React.lazy(() => import('./RestaurantCard'));
 
@@ -29,7 +30,7 @@ const  RestaurantsList = () => {
           const isMobile = false;
           const url = isMobile ? mobile_reserve_url : reserve_url;
           return (
-            <Suspense key={`l${i}`} fallback={<div>Loading...</div>}>
+            <Suspense key={`l${i}`} fallback={<LoadingImg />}>
               <RestaurantCard
                 id={id}
                 i={i}
