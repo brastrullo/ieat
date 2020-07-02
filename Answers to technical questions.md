@@ -10,7 +10,10 @@ Also I didn't get to complete the styling.
 I haven't used Dynamic Import yet but I've added React's React.lazy/Suspense syntax to this project. Native code-splitting is something I'm really excited to use.
 I'm still tinkering with it but here's a snippet of my using React.Lazy/Suspense:
 
-`const RestaurantCard = React.lazy(() => import('./RestaurantCard'));`
+```
+const RestaurantCard = React.lazy(() => import('./RestaurantCard'));
+```
+```
             <Suspense key={`l${i}`} fallback={<div>Loading...</div>}>
               <RestaurantCard
                 id={id}
@@ -25,7 +28,7 @@ I'm still tinkering with it but here's a snippet of my using React.Lazy/Suspense
                 url={url}
               />
             </Suspense>
-
+```
 
 ## How would you track down a performance issue in production? Have you ever had to do this?
 Yes, but taking care of issues before they hit prod was also part of good processes. CIs take care of a lot and was heavily used in the companies I worked for. Automation is key. For issues post-prod I did a bit of A/B testing.
