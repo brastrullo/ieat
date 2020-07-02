@@ -19,4 +19,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 `serve -s build`
 
 ### This app is also hosted on heroku
-[ieat-heroku](https://ieat-heroku.herokuapp.com/)
+[ieat-heroku.herokuapp.com](https://ieat-heroku.herokuapp.com/)
