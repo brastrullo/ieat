@@ -1,8 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import cityReducer from '../features/city/citySlice';
 
 export default configureStore({
   reducer: {
-    counter: counterReducer,
+    city: cityReducer,
   },
+  middleware: getDefaultMiddleware({
+    serializableCheck: false
+  })
 });
