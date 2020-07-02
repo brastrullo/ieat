@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
-
 ### Install project and dependancies
 
 `git clone git@github.com:brastrullo/ieat.git`
@@ -18,5 +16,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 `serve -s build`
 
-### This app is also hosted on heroku
-[ieat-heroku.herokuapp.com](https://ieat-heroku.herokuapp.com/)
+#### This app is also hosted on [ieat-heroku.herokuapp.com](https://ieat-heroku.herokuapp.com/)
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
