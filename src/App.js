@@ -8,6 +8,7 @@ function App() {
       <header className="App-header">
         <City />
       </header>
+      <footer>by bradley.rastrullo</footer>
     </div>
   );
 }

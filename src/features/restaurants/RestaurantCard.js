@@ -38,7 +38,7 @@ const RestaurantCard = ({
               <p className={styles.line_1}>{`${address}, ${city}`}</p>
               <p className={styles.line_2}>{`${state}, ${postal_code}`}</p>
             </div>
-            <a className={styles.reserve_btn} href={url}>Reserve a table</a>
+            <a className={styles.reserve_btn} rel="noopener noreferrer" target={'_blank'} href={url}>Reserve a table</a>
         </div>
       </li>
     </div>

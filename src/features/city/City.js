@@ -20,6 +20,7 @@ import {
   updatePage
 } from './citySlice';
 import LoadingBtn from '../assets/LoadingBtn';
+import LoadingImg from '../assets/LoadingImg';
 import styles from './City.module.css';
 
 const RestaurantsList = React.lazy(() => import('../restaurants/RestaurantsList'));
@@ -64,6 +65,7 @@ export function City() {
   }
   const goToPage = (n) => {
     console.log({n})
+    window.scrollTo(0, 0)
     dispatch(setCurrentPage(n))
     if (filter.length > 0) {
       dispatch(updatePage(filteredList))
@@ -125,8 +127,10 @@ export function City() {
 
   return (
     <>
+      <div id="top"></div>
+      <p className={styles.ieat}>iEat</p>
       <p className={styles.searching_text}>
-        <p>Search for restaurants in </p>
+        <p>in </p>
         <span className={styles.searching_city}>
           {
             searchObject.city.length > 0
@@ -170,31 +174,24 @@ export function City() {
         }
         </button>
       </div>
-      { (list.length >= 0 && value && loadingState !== 'pending') &&
-        <p>
-          {`Showing ${(currentPage * nEntries) - (nEntries - 1)}` +
-          `-${((currentPage - 1) * nEntries) + list.length} ` +
-          `of ${totalEntries}`}
-        </p>
-      }
-      { filter.length > 0 &&
-        <p>{`Finding: '${filter}' / Found ${list.length}`} </p>
-      }
-      { list &&
+      { list && loadingState === 'idle' &&
         <>
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            totalEntries={totalEntries}
-          />
-          <Suspense fallback={<div>Loading...</div>}>
+          { (list.length >= 0 && value && loadingState !== 'pending') &&
+            <p className={styles.showing_entries}>
+              {`Showing ${(currentPage * nEntries) - (nEntries - 1)}` +
+              `-${((currentPage - 1) * nEntries) + list.length} ` +
+              `of ${totalEntries}`}
+            </p>
+          }
+          <Suspense fallback={<LoadingImg />}>
             <RestaurantsList />
+            <a className={styles.return_top} href='#top'>Return to top</a>
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              totalEntries={totalEntries}
+            />
           </Suspense>
-          <Pagination
-            totalPages={totalPages}
-            currentPage={currentPage}
-            totalEntries={totalEntries}
-          />
         </>
       }
     </>

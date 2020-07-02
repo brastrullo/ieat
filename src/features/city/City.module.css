@@ -16,6 +16,18 @@
   --sub-border-radius: .5rem;
   --pagination-btn-border-radius: 2px;
 }
+
+.ieat {
+  font-family: 'MuseoModerno', cursive;
+  color: rgb(250, 231, 173);
+  font-size: 3rem;
+  margin: 2rem 0 0;
+  line-height: 1;
+}
+.searching_text {
+  margin-top: 0;
+}
+
 .searching_text > p {
   font-size: 2rem;
   display: inline;
@@ -73,6 +85,13 @@
   color: rgb(207, 207, 207);
 }
 
+.showing_entries {
+  font-size: .8rem;
+  color: var(--color-lighter-text);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .pages_list {
   padding: 0;
   margin: 2rem 0;
@@ -99,6 +118,7 @@
   background: var(--main-color);
 }
 .current_page_btn:hover {
+  pointer-events: none;
   cursor: pointer;
   background: var(--btn-color-hover);
   border: 1px solid var(--btn-color-hover);
@@ -242,4 +262,17 @@
   border-radius: 5rem;
   background: var(--main-color);
   border-bottom: var(--main-color-dark) 3px solid;
+}
+
+.reserve_btn:hover {
+  background: var(--btn-color-hover);
+}
+
+.reserve_btn:active {
+  background: var(--main-color);
+  border: none;
+}
+
+.return_top, .return_top:active {
+  color: var(--color-lighter-text);
 }
