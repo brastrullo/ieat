@@ -10,8 +10,8 @@
 }
 
 .city_label, .filter_label {
-  visibility: hidden;
-  display: none;
+  /* visibility: hidden;
+  display: none; */
 }
 
 .city_input, .filter_input, .search_btn {

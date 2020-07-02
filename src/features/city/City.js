@@ -125,7 +125,7 @@ export function City() {
 
   return (
     <>
-      <p className={styles.searching_text}> Searching for restaurants in {searchObject.city}</p>
+      <p className={styles.searching_text}> Search for restaurants in {searchObject.city}</p>
       <div className={styles.search_fields}>
         <label className={styles.city_label} htmlFor="city">City:</label>
         <input
